@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Join
+{% endblock %}
+
+{% block main %}
+{% if not session.user_id  %}
+<div class="alert alert-primary" role="alert">Welcome to picnic! Log in or join to be able to use all features of the website! <a href=/login class="alert-link">Log in</a>
+</div>
+<br>
+{% endif %}
+<div class ="list">
+{% for item in rows %}
+<br><br>
+ <a href="/goto?lat={{item.marker_lat}}&lng={{item.marker_lng}}" class="list-group-item list-group-item-success list-group-item-action flex-column align-items-start">
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1">{{item.place_name}}</h5>
+      {% if session.user_id == item.user_id %}
+      <a href="/delete" small class="text-muted">Delete</small></a>
+      <small class="text-muted">Delete</small>
+      {% endif %}
+    </div>
+    <p class="mb-1">{{item.description}}.</p>
+    <small class="text-muted">Added by {{item.user_id}}</small>
+  </a>
+
+{%endfor%}
+</div>
+{% endblock %}

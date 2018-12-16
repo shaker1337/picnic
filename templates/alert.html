@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Alert
+{% endblock %}
+
+{% block main %}
+
+
+    <div class="alert alert-danger" role="alert">
+  {{ alert_message }} <a href="javascript:history.back()" class="alert-link">Retry</a>
+    </div>
+{% endblock %}

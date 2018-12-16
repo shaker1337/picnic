@@ -1,0 +1,18 @@
+@app.route("/add_place", methods=["GET", "POST"])
+def add_place():
+
+    if request.method=="POST":
+        if not request.form.get("description"):
+            return render_template("alert.html", alert_message="Make sure you add description of place you have chosen to add! Thanks!")
+        if not request.form.get("place_name"):
+            return render_template("alert.html", alert_message="Make sure you add name for a place! Thanks!")
+        description=request.form.get("description")
+        place_name=request.form.get("place_name")
+        user=session["user_id"]
+        marker2=request.form.get("position")
+        print(marker2)
+        marker='aaa'
+        db.execute("INSERT into places(user_id, description, place_name, marker) VALUES(:user, :description, :place_name, :marker)", user=user, description=description, place_name=place_name, marker=marker)
+        return render_template("add_place.html")
+    else:
+        return render_template("add_place.html")

@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Go to
+{% endblock %}
+
+{% block main %}
+<h1>Here are directions for your picnic spot!</h1><br>
+<a href="https://www.google.com/maps/dir/?api=1&destination={{lat}},{{lng}}
+"<button type="button" class="btn btn-primary btn-lg">Go</button></a><br><br>
+<h2>Latitude: {{lat}}<br> Longtitude: {{lng}}</h2>
+<p>(Google Directions to be implemented)</p>
+</div>
+{% endblock %}

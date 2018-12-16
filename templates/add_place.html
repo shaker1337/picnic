@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block title %}
+   Add place
+{% endblock %}
+
+{% block main %}
+<!-- https://developers.google.com/maps/documentation/javascript/tutorial -->
+<div class= "container-fluid">
+    <div class="row">
+        <div class="col-sm">
+            <p>Share your experience! Please add your lovely picnic location<br>
+            1. Mark location on map<br>
+            2. Add name for a place and describe it<br>
+            3. Submit!</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm">
+            <p> </p>
+            <div class=mp-size id="map-canvas"></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm">
+            <form action="/add_place" method="post" id="form">
+            <div class="form-group cm-pos">
+                <label for="place_name">Add place name:</label>
+                <textarea class="form-control"  autofocus class="form-control" name="place_name" rows="2" id="place_name"></textarea><br>
+            </div></form>
+        </div>
+        <div class="col-sm">
+            <form action="/add_place" method="post" id="form">
+            <div class="form-group cm-pos">
+                <label for="description">Add description:</label>
+                <textarea class="form-control"  autofocus class="form-control" name="description" rows="15" id="description"></textarea>
+                <input id="submit" class="btn btn-primary" type="submit" value="Add place">
+            </div></form>
+        </div>
+    </div>
+</div>
+{% endblock main %}
